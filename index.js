@@ -59,10 +59,9 @@ async function extraer() {
   // de tipo 'tool_use'. Lo buscamos dentro del content.
   const bloqueTool = respuesta.content.find((b) => b.type === 'tool_use');
 
-  // ¡Y acá está la magia! bloqueTool.input YA ES UN OBJETO de JavaScript.
-  // No hay JSON.parse, no hay .replace(), no hay markdown. Ya viene listo.
-  const datos = bloqueTool.input;
 
+  const datos = bloqueTool.input;
+console.log(respuesta.usage);
   console.log('Producto:   ', datos.producto);
   console.log('Sentimiento:', datos.sentimiento);
   console.log('Puntuación: ', datos.puntuacion);
